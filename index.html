@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>臺南家暴相對人服務導航</title>
+    <link rel="stylesheet" href="./src/styles/main.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <div class="site-header__inner">
+          <button class="brand-button" type="button" data-page-target="home">
+            <span class="brand-button__eyebrow">Tainan Guidance</span>
+            <span class="brand-button__title">臺南家暴相對人服務導航</span>
+          </button>
+
+          <div class="site-header__actions">
+            <button
+              class="secondary-link"
+              type="button"
+              data-page-target="services"
+              data-scroll-target="victim-entry"
+            >
+              如果你是遭受暴力的一方，請點這裡
+            </button>
+            <a class="quick-exit" href="https://www.google.com" target="_blank" rel="noreferrer">
+              安全離開
+            </a>
+          </div>
+        </div>
+
+        <nav class="main-nav" aria-label="主選單">
+          <div class="main-nav__inner" role="tablist" aria-label="網站主選單">
+            <button class="nav-tab is-active" type="button" role="tab" data-page-target="home">
+              首頁
+            </button>
+            <button class="nav-tab" type="button" role="tab" data-page-target="stages">
+              我現在在哪個階段
+            </button>
+            <button class="nav-tab" type="button" role="tab" data-page-target="needs">
+              我需要什麼幫助
+            </button>
+            <button class="nav-tab" type="button" role="tab" data-page-target="services">
+              臺南相對人服務窗口
+            </button>
+            <button class="nav-tab" type="button" role="tab" data-page-target="crisis">
+              我現在情緒快失控了
+            </button>
+            <button class="nav-tab" type="button" role="tab" data-page-target="about">
+              關於這個網站
+            </button>
+          </div>
+        </nav>
+      </header>
+
+      <main class="main-content">
+        <section class="page-panel is-active" id="page-home" data-page="home">
+          <section class="hero-card">
+            <div class="hero-card__content">
+              <p class="eyebrow">臺南家暴相對人服務導航</p>
+              <h1>協助你理解目前所處階段、辨識自己的需要，並找到在臺南可以求助的資源與下一步。</h1>
+              <p class="hero-card__lead">
+                你需要為暴力負責，但你不用一個人硬撐。先看懂自己現在在哪裡、最需要什麼，再決定下一步，通常會比在混亂裡硬撐更有幫助。
+              </p>
+            </div>
+            <div class="hero-card__aside">
+              <div class="hero-note">
+                <h2>先記住三件事</h2>
+                <ul>
+                  <li>承擔責任，不等於只能自己撐住。</li>
+                  <li>先穩定情緒，再處理程序與關係。</li>
+                  <li>如果擔心自己會再次失控，先求助，比事後補救更重要。</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section class="content-section">
+            <div class="section-heading">
+              <div>
+                <p class="section-label">首頁入口</p>
+                <h2>從最接近你現在狀況的入口開始</h2>
+              </div>
+            </div>
+            <div id="home-entry-cards" class="entry-grid"></div>
+          </section>
+
+          <section class="content-section">
+            <div class="section-heading">
+              <div>
+                <p class="section-label">快速支持</p>
+                <h2>除了正式窗口，你還可以先用的支持資源</h2>
+              </div>
+            </div>
+            <div id="home-quick-support" class="support-grid support-grid--compact"></div>
+          </section>
+
+          <section class="content-section">
+            <div class="section-heading">
+              <div>
+                <p class="section-label">3 分鐘自我定位</p>
+                <h2>先幫自己找方向，不是做診斷</h2>
+              </div>
+              <p class="section-copy">
+                這個模組只用來幫你整理目前狀況與優先順序，不會判定你是什麼人，也不會取代正式評估。
+              </p>
+            </div>
+
+            <div class="locator-layout">
+              <form id="self-locator-form" class="locator-form">
+                <label class="field">
+                  <span>你最近是否收到法院、保護令或相關通知？</span>
+                  <select name="noticeStatus">
+                    <option value="after-incident">有衝突或事件，但還在初步介入階段</option>
+                    <option value="court-notice">有，最近收到通知、保護令或開庭相關資訊</option>
+                    <option value="assessment">已經被要求做評估、晤談或安排處遇</option>
+                    <option value="ongoing-treatment">已經在執行處遇、上課或持續配合中</option>
+                    <option value="follow-up">處遇接近尾聲，或已進入後續追蹤</option>
+                  </select>
+                </label>
+
+                <label class="field">
+                  <span>你現在最困擾的是什麼？</span>
+                  <select name="mainConcern">
+                    <option value="emotion">情緒快壓不住、容易爆炸</option>
+                    <option value="legal">程序、通知、保護令看不懂</option>
+                    <option value="family">和家人一直衝突，不知道怎麼談</option>
+                    <option value="substance">酒精、藥物或情緒困擾</option>
+                    <option value="work">工作、經濟或生活壓力</option>
+                    <option value="change">想改變，但不知道從哪裡開始</option>
+                  </select>
+                </label>
+
+                <label class="field">
+                  <span>你是否擔心自己可能再次失控？</span>
+                  <select name="riskLevel">
+                    <option value="high">是，我很擔心自己會再動手或做出傷害行為</option>
+                    <option value="medium">有點擔心，但還能勉強撐著</option>
+                    <option value="low">目前沒有這個擔心</option>
+                  </select>
+                </label>
+
+                <label class="field">
+                  <span>你目前最需要的是哪一種幫助？</span>
+                  <select name="primaryNeed">
+                    <option value="understand-process">先看懂流程與我在哪個階段</option>
+                    <option value="stabilize-emotion">先讓自己穩下來，不要再失控</option>
+                    <option value="find-window">先找到臺南可以聯絡的窗口</option>
+                    <option value="life-support">先找生活、工作或支持資源</option>
+                  </select>
+                </label>
+
+                <button class="primary-button" type="submit">查看我的導覽結果</button>
+              </form>
+
+              <section id="locator-result" class="locator-result" aria-live="polite">
+                <p class="section-label">導覽結果</p>
+                <h3>先回答左邊四個問題</h3>
+                <p>完成後，這裡會整理你目前可能的階段、優先需求、建議先看哪一頁，以及建議先聯絡哪一種窗口。</p>
+              </section>
+            </div>
+          </section>
+
+          <section class="content-section">
+            <div class="section-heading">
+              <div>
+                <p class="section-label">緊急提醒</p>
+                <h2>如果你擔心自己會再次失控，先做這些事</h2>
+              </div>
+            </div>
+            <div id="home-emergency-list" class="reminder-grid"></div>
+          </section>
+
+          <section class="content-section">
+            <div class="section-heading">
+              <div>
+                <p class="section-label">網站定位聲明</p>
+                <h2>這個網站能做什麼，也不能做什麼</h2>
+              </div>
+            </div>
+            <div id="home-positioning" class="statement-card"></div>
+          </section>
+        </section>
+
+        <section class="page-panel" id="page-stages" data-page="stages" hidden>
+          <section class="page-hero">
+            <p class="eyebrow">我現在在哪個階段</p>
+            <h1>用五個階段，幫你理解自己目前大概在哪裡</h1>
+            <p>
+              這不是精確判定，而是讓你更快看懂自己目前可能面對的通知、常見困惑、可先做的事，以及下一步通常會接到哪裡。
+            </p>
+          </section>
+
+          <div id="stage-progress" class="stage-progress" aria-label="五階段進度條"></div>
+          <section class="detail-layout">
+            <aside id="stage-list" class="selection-list" aria-label="流程階段清單"></aside>
+            <article id="stage-detail" class="detail-display"></article>
+          </section>
+        </section>
+
+        <section class="page-panel" id="page-needs" data-page="needs" hidden>
+          <section class="page-hero">
+            <p class="eyebrow">我需要什麼幫助</p>
+            <h1>從你會說出口的話開始找資源</h1>
+            <p>
+              先不用把自己套進專業分類。你可以先從最接近你現在狀態的一句話開始，再看現在能做什麼、臺南有哪些資源可能幫得上忙。
+            </p>
+          </section>
+
+          <section class="detail-layout">
+            <aside id="need-list" class="selection-list" aria-label="需求入口清單"></aside>
+            <article id="need-detail" class="detail-display"></article>
+          </section>
+        </section>
+
+        <section class="page-panel" id="page-services" data-page="services" hidden>
+          <section class="page-hero">
+            <p class="eyebrow">臺南相對人服務窗口</p>
+            <h1>找正式窗口與合作單位，不用自己亂猜下一步</h1>
+            <p>
+              這一頁整理的是與臺南家暴相對人服務較相關的正式或合作窗口，重點是讓你知道可以先找誰、通常可以問什麼。
+            </p>
+          </section>
+
+          <section class="content-section">
+            <div class="section-heading">
+              <div>
+                <p class="section-label">正式窗口</p>
+                <h2>先找公部門窗口確認方向</h2>
+              </div>
+            </div>
+            <div id="primary-services" class="service-grid"></div>
+          </section>
+
+          <section class="content-section">
+            <div class="section-heading">
+              <div>
+                <p class="section-label">合作／承辦單位</p>
+                <h2>兩個重要合作／承辦單位</h2>
+              </div>
+            </div>
+            <div id="partner-services" class="service-grid"></div>
+          </section>
+
+          <section class="content-section">
+            <div class="section-heading">
+              <div>
+                <p class="section-label">延伸支持資源</p>
+                <h2>法律、心理、生活與家庭支持</h2>
+              </div>
+            </div>
+            <div id="extended-services" class="support-grid"></div>
+          </section>
+
+          <section class="content-section victim-entry" id="victim-entry">
+            <div class="section-heading">
+              <div>
+                <p class="section-label">次要分流入口</p>
+                <h2>如果你是遭受暴力的一方，請改由保護服務入口尋求協助</h2>
+              </div>
+            </div>
+            <div id="victim-service" class="victim-card"></div>
+          </section>
+        </section>
+
+        <section class="page-panel" id="page-crisis" data-page="crisis" hidden>
+          <section class="page-hero page-hero--alert">
+            <p class="eyebrow">我現在情緒快失控了</p>
+            <h1>先停下來，先把傷害風險降下來</h1>
+            <p>
+              如果你已經感覺自己快要控制不住，現在最重要的不是爭贏，而是先讓事情不要繼續變糟。
+            </p>
+          </section>
+
+          <section class="content-section">
+            <div class="section-heading">
+              <div>
+                <p class="section-label">A. 立即可用的電話資源</p>
+                <h2>先打得出去，比自己硬撐更重要</h2>
+              </div>
+            </div>
+            <div id="crisis-hotlines" class="hotline-stack"></div>
+          </section>
+
+          <section class="content-section">
+            <div class="section-heading">
+              <div>
+                <p class="section-label">B. 先做的事</p>
+                <h2>先把人和衝突分開</h2>
+              </div>
+            </div>
+            <div id="crisis-actions" class="reminder-grid"></div>
+          </section>
+
+          <section class="content-section">
+            <div class="section-heading">
+              <div>
+                <p class="section-label">C. 溫和提醒</p>
+                <h2>先停下來，不代表你沒有責任</h2>
+              </div>
+            </div>
+            <div id="crisis-note" class="statement-card"></div>
+          </section>
+        </section>
+
+        <section class="page-panel" id="page-about" data-page="about" hidden>
+          <section class="page-hero">
+            <p class="eyebrow">關於這個網站</p>
+            <h1>這是一個給臺南市家暴相對人使用的服務導航網站</h1>
+            <p>
+              它不是全國性百科，也不是規避責任的工具。重點是幫你理解流程、辨識需求、找到在地窗口，並在高風險時先找到可立即使用的求助方式。
+            </p>
+          </section>
+
+          <section id="about-blocks" class="about-grid"></section>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p>
+          本網站提供流程理解、需求辨識與資源導航，不提供規避責任、規避法律或傷害他人的建議，也不取代正式法律、醫療、社工或心理專業服務。
+        </p>
+        <p>
+          本工具僅供資訊整理與教育用途，不構成法律意見；若遇緊急危險請立即撥打 110 或 113。
+        </p>
+      </footer>
+    </div>
+
+    <button id="back-to-top" class="back-to-top" type="button" aria-label="回到上方">
+      回到上方
+    </button>
+
+    <script src="./src/data/site-data.js"></script>
+    <script src="./src/app.js"></script>
+  </body>
+</html>
