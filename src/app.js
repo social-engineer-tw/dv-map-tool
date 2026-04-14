@@ -10,6 +10,11 @@
   const elements = {
     pageButtons: document.querySelectorAll("[data-page-target]"),
     pagePanels: document.querySelectorAll("[data-page]"),
+    heroEyebrow: document.querySelector(".hero-card .eyebrow"),
+    heroTitle: document.querySelector(".hero-card__content h1"),
+    heroLead: document.querySelector(".hero-card__lead"),
+    heroNoteTitle: document.querySelector(".hero-note h2"),
+    heroNoteList: document.querySelector(".hero-note ul"),
     homeEntryCards: document.querySelector("#home-entry-cards"),
     homeQuickSupport: document.querySelector("#home-quick-support"),
     homeEmergencyList: document.querySelector("#home-emergency-list"),
@@ -106,6 +111,28 @@
   }
 
   function renderHome() {
+    const hero = data.home.hero || {};
+
+    if (elements.heroEyebrow && hero.eyebrow) {
+      elements.heroEyebrow.textContent = hero.eyebrow;
+    }
+
+    if (elements.heroTitle && hero.title) {
+      elements.heroTitle.textContent = hero.title;
+    }
+
+    if (elements.heroLead && hero.lead) {
+      elements.heroLead.textContent = hero.lead;
+    }
+
+    if (elements.heroNoteTitle && hero.noteTitle) {
+      elements.heroNoteTitle.textContent = hero.noteTitle;
+    }
+
+    if (elements.heroNoteList && Array.isArray(hero.noteItems) && hero.noteItems.length) {
+      elements.heroNoteList.innerHTML = hero.noteItems.map((item) => `<li>${item}</li>`).join("");
+    }
+
     elements.homeEntryCards.innerHTML = (data.home.entryCards || [])
       .map(
         (item) => `

@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>臺南家暴相對人服務導航</title>
     <link rel="stylesheet" href="./src/styles/main.css" />
   </head>
@@ -331,7 +331,11 @@
       回到上方
     </button>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./config/supabase.js"></script>
+    <script src="./shared/supabase-client.js"></script>
     <script src="./src/data/site-data.js"></script>
-    <script src="./src/app.js"></script>
+    <script src="./src/data/public-content.js"></script>
+    <script src="./src/boot.js"></script>
   </body>
 </html>
